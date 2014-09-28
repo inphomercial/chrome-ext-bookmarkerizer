@@ -10,3 +10,8 @@ td.toggle {
 .title {
 	font-size: 2em;
 }
+
+.total {
+	font-size: 2em;
+	color: gray;
+}

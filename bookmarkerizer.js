@@ -17,43 +17,77 @@ function removeBookmark(id) {
 	});
 }
 
+function dumpNodesToArray(bookmark_nodes) {
+
+	var bookmarks = [];
+	var directories = [];
+
+	console.log("BOOKMARK NODES");
+	console.log(bookmark_nodes);
+
+	bookmarks = getChildNodes(bookmarks, bookmark_nodes);
+
+	console.log(bookmarks);
+
+	return bookmarks;
+}
+
+function getChildNodes(master, array) {
+
+	for( var i=0; i<array.length; i++) {
+		if(array[i].children && array[i].children.length > 0) {
+			console.log("found dir");
+			getChildNodes(master, array[i].children);
+		}
+		else
+		{
+			console.log("found bookmark");
+			master.push(array[i]);
+		}
+	}
+
+	console.log("RETURN MASTER");
+	console.log(master);
+	return master;
+}
+
 function process_bookmark(bookmarks) {
 
 	var bookmark = bookmarks[0];
-	var actual_bookmarks = bookmark.children[0];
+	var bookmark_bar = bookmark.children[0];
 
-	console.log(actual_bookmarks);
+	// Bookmark Bar
+	console.log(bookmark_bar);
 
 	// Start button disabled
 	$('#cleanup').attr('disabled', 'disabled');
 
+
+	var bookmarks = dumpNodesToArray(bookmark_bar.children);
+	console.log("FINAL OUTPUT ARRAY");
+	console.log(bookmarks);
+
 	// Sorts by Date by reference
-	orderByDate(actual_bookmarks.children);
+	orderByDate(bookmarks);
 
-	// Used to store directory arrays
-	// var directories = [];
-	for(var i=0; i<actual_bookmarks.children.length; i++) {
-
-		// if(actual_bookmarks.children.children().length > 0) {
-		// 	console.log("directory");
-		// }
+	for(var i=0; i<bookmarks.length; i++) {
 
 		var tr = $('<tr class="bookmark_id">');
 
 		// Done td
-		tr.append('<td class="id">' + actual_bookmarks.children[i].id + '</td>');
+		tr.append('<td class="id">' + bookmarks[i].id + '</td>');
 
 		// Date added
-		var dt = new Date(actual_bookmarks.children[i].dateAdded);
+		var dt = new Date(bookmarks[i].dateAdded);
 		var month = dt.getMonth()+1;
 		tr.append('<td>' + month + '/' + dt.getDate() + '/' + dt.getFullYear() + '</td>');
 
 		// Url td
 		var td = $('<td>');
 		var anchor = $('<a>');
-    		anchor.attr('href', actual_bookmarks.children[i].url);
+    		anchor.attr('href', bookmarks[i].url);
 		anchor.attr('target', "_blank");
-    		anchor.text(actual_bookmarks.children[i].title);
+    		anchor.text(bookmarks[i].title);
 		td.append(anchor);
 		tr.append(td);
 
