@@ -8,22 +8,24 @@
 <body>
 	<br>
 	<div class="row">
-		<div class="col-xs-2"></div>
-		<div class="col-xs-5">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-4">
 			<p class="title">FREE YOUR BOOKMARKS</p>
 		</div>
-		<div class="col-xs-1">
-			<span class="total">Total : <span class="total_value"></span></span>
-		</div>
 		<div class="col-xs-2">
-			<button class="btn btn-primary pull-right" id="cleanup">Clean Up</button>
+			<p class="title">Total : <span class="total_value"></p></span>
 		</div>
+		<div class="col-xs-2 col-xs-offset-2">
+			<button class="btn btn-primary" id="cleanup">Clean Up</button>
+		</div>
+		<div class="col-xs-1"></div>
 	</div>
 	<div class="row">
-		<div class="col-xs-2"></div>
-  		<div class="col-xs-8" id="bookmarks">
+		<div class="col-xs-1"></div>
+  		<div class="col-xs-10" id="bookmarks">
 			<table class="table table-striped list table-hover">
 				<thead>
+					<td>Type</td>
 					<td>Added</td>
 					<td>Title</td>
 				</thead>
@@ -32,7 +34,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-xs-2"></div>
+		<div class="col-xs-1"></div>
 	</div>
 </body>
 </html>

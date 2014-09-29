@@ -4,6 +4,7 @@ td.toggle {
 }
 
 #cleanup {
+	padding-top: 10px;
 	width: 80%;
 }
 
@@ -12,6 +13,6 @@ td.toggle {
 }
 
 .total {
-	font-size: 2em;
+	font-size: 1.2em;
 	color: gray;
 }
