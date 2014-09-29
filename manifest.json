@@ -1,7 +1,7 @@
 {
   "name": "Free Your Bookmarks",
   "version": "1.0",
-  "description": "View your bookmarks by added date in a very simple list, easier to identify and remove unnneded bookmarks.",
+  "description": "View your bookmarks by added date in a very simple list, easier to identify and remove unneeded bookmarks.",
   "permissions": [
     "bookmarks"
   ],
