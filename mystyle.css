@@ -10,9 +10,11 @@ td.toggle {
 
 .title {
 	font-size: 2em;
+	margin-top: 5px;
 }
 
 .total {
-	font-size: 1.2em;
+	margin-top: -15px;
+	font-size: 1.4em;
 	color: gray;
 }
